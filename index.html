@@ -29,6 +29,7 @@
       border-radius: 0 0 1.5rem 1.5rem;
       box-shadow: 0 2px 8px #b3d8fd80;
       margin-bottom: 1.5rem;
+      flex-wrap: wrap; /* Added for better mobile support */
     }
     nav a {
       color: #2a3a4a;
@@ -147,6 +148,33 @@
     /* News gallery styles */
     .news-gallery { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 1rem; }
     .news-gallery img { width: calc(33% - 1rem); max-width: 260px; border-radius: 1rem; box-shadow: 0 4px 16px #b3d8fd80; border: 4px solid #ffe0e9; background: #e3f1fb; object-fit: cover; }
+    
+    /* New: Updates section stuffie gallery */
+    .updates-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: #e3f1fb;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 16px #b3d8fd80;
+    }
+    .updates-gallery img {
+      width: 100%;
+      max-width: 200px;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px #d7266040;
+      border: 3px solid #d72660;
+      background: #fff;
+    }
+    .update-item {
+      text-align: center;
+      flex-basis: 200px;
+      padding: 1rem;
+    }
+    
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
@@ -157,6 +185,15 @@
       header { padding: 1.5rem 0.5rem 1rem 0.5rem; }
       nav { flex-wrap: wrap; gap: 0.7rem; }
       .news-gallery img { width: calc(50% - 0.5rem); }
+      /* Adjust update gallery for small screens */
+      .updates-gallery {
+        flex-direction: column;
+        align-items: center;
+      }
+      .update-item {
+        width: 100%;
+        max-width: 300px;
+      }
     }
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -186,9 +223,9 @@
     <a href="#products" onclick="showSection('products')">Products</a>
     <a href="#canine-crew" onclick="showSection('canine-crew')">The Canine Crew</a>
     <a href="#about" onclick="showSection('about')">About Us</a>
-  <a href="#contact" onclick="showSection('contact')">Contact Us</a>
-  <a href="#news" onclick="showSection('news')">News & Updates</a>
-    
+    <a href="#contact" onclick="showSection('contact')">Contact Us</a>
+    <a href="#news" onclick="showSection('news')">News & Updates</a>
+    <a href="#updates" onclick="showSection('updates')" class="active">Updates & Partners</a>
   </nav>
 <main>
     <section id="home" class="site-section">
@@ -230,7 +267,7 @@
     </div>
     
     <div class="book-section" style="margin-top:2.5rem;">
-        <img src="static/bundle.jpeg" alt="Book, Button & Story Stuffie Bundle">
+        <img src="static/story and stuffie.JPG" alt="Book, Button & Story Stuffie Bundle">
         <div>
             <h2>Book, Button & Story Stuffie Bundle</h2>
             <p><strong>Price:</strong> $20.00</p>
@@ -254,9 +291,9 @@
     </div>
     
     <div class="book-section" style="margin-top:2.5rem;">
-        <img src="static/goldieStuffy.jpeg" alt="Goldie Story Stuffie">
+        <img src="static/goldie stuffie.JPG" alt="Goldie Story Stuffie">
         <div>
-            <h2>Goldie Story Stuffie</h2>
+            <h2>Goldie Story Stuffie (Golden Retriever)</h2>
             <p><strong>Price:</strong> $10.00</p>
             <p>Bring home **Goldie**, the gentle and wise golden-hearted dog from the Canine Crew! Perfect for hugging while reading her adventures.</p>
             <a href="https://square.link/u/lSXN1rnR" target="_blank" rel="noopener">
@@ -266,10 +303,10 @@
     </div>
     
     <div class="book-section" style="margin-top:2.5rem;">
-        <img src="static/TobyStuffy.jpeg" alt="Toby Story Stuffie">
+        <img src="static/toby stuffie.JPG" alt="Toby Story Stuffie">
         <div>
             <h2>Toby Story Stuffie</h2>
-            <p><strong>Price:</strong> $10.00</p>
+            <p><strong>Price:</strong> $16.99 (Example Price)</p>
             <p>Snuggle up with **Toby**, the sweet, timid pup who learns to be brave! A cuddly friend for quiet reading time.</p>
             <a href="https://square.link/u/blWtBr8Q" target="_blank" rel="noopener">
                 <button style="background:#6a8caf;color:#fff;padding:0.5rem 1.2rem;border:none;border-radius:4px;cursor:pointer;">Buy Now</button>
@@ -278,7 +315,7 @@
     </div>
     
     <div class="book-section" style="margin-top:2.5rem;">
-        <img src="static/tabbyCatStuffy.jpeg" alt="Tabby Cat Story Stuffie">
+        <img src="static/tabby stuffie.JPG" alt="Tabby Cat Story Stuffie">
         <div>
             <h2>Tabby Cat Story Stuffie</h2>
             <p><strong>Price:</strong> $10.00</p>
@@ -391,6 +428,32 @@
         </div>
       </div>
     </section>
+
+    <section id="updates" class="site-section" style="display:none;">
+      <h2 class="section-title" style="text-align:center;">Updates & Partner Spotlight</h2>
+      <div style="max-width:800px;margin:1rem auto;text-align:center;padding:1rem;">
+        <h3 style="color:#d72660; margin-top:0;">Stories, Stuffies, and Stickers, Oh My! 🎁</h3>
+        <p style="font-size:1.1rem; line-height:1.6;">
+          We are so excited to support the **Volunteer Puppy Partners** this holiday season with the softest, sustainable, snuggly mini story stuffies we discovered from **Wilberry** and **Peter Pauper Press**. These mini animal pals are the perfect accessory for hugs, cuddles and cozy winter days.
+        </p>
+        <p style="font-style:italic; font-weight:600; color:#2a90e6;">Check out the adorable "Hug A" series kits below!</p>
+
+        <div class="updates-gallery">
+          <div class="update-item">
+            <img src="static/hug series bundle.jpg" alt="Hug A Kitten, Reindeer & Dog Mini-Book & Stuffie Set" style="max-width: none; width: 100%; height: auto; object-fit: contain; border-color: #2a90e6;">
+          </div>
+          <div class="update-item">
+            <img src="static/hug a kitten.JPG" alt="Hug A Kitten Kit" style="max-width: none; width: 100%; height: auto; object-fit: contain;">
+          </div>
+          <div class="update-item">
+            <img src="static/hug a puppy.JPG" alt="Hug A Puppy Kit" style="max-width: none; width: 100%; height: auto; object-fit: contain;">
+          </div>
+          <div class="update-item">
+            <img src="static/hug a reindeer.jpg" alt="Hug A Reindeer Kit" style="max-width: none; width: 100%; height: auto; object-fit: contain;">
+          </div>
+        </div>
+      </div>
+    </section>
     
   </main>
   <footer>
@@ -411,8 +474,19 @@
         section.style.display = 'none';
       });
       document.getElementById(id).style.display = 'block';
+
+      // Update active state in nav
+      const navLinks = document.querySelectorAll('nav a');
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+      });
+      document.querySelector('nav a[href="#' + id + '"]').classList.add('active');
     }
+
     document.addEventListener('DOMContentLoaded', function() {
+      // Set 'home' as active on load
+      showSection('home');
+      
       var paymentSelect = document.getElementById('payment-method');
       if (paymentSelect) {
         var creditFields = document.getElementById('credit-fields');
@@ -434,8 +508,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
