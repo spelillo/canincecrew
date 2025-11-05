@@ -149,7 +149,7 @@
     .news-gallery { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 1rem; }
     .news-gallery img { width: calc(33% - 1rem); max-width: 260px; border-radius: 1rem; box-shadow: 0 4px 16px #b3d8fd80; border: 4px solid #ffe0e9; background: #e3f1fb; object-fit: cover; }
     
-    /* New: Updates section stuffie gallery */
+    /* Updates section stuffie gallery */
     .updates-gallery {
       display: flex;
       flex-wrap: wrap;
@@ -225,7 +225,6 @@
     <a href="#about" onclick="showSection('about')">About Us</a>
     <a href="#contact" onclick="showSection('contact')">Contact Us</a>
     <a href="#news" onclick="showSection('news')">News & Updates</a>
-    <a href="#updates" onclick="showSection('updates')" class="active">Updates & Partners</a>
   </nav>
 <main>
     <section id="home" class="site-section">
@@ -419,19 +418,8 @@
     </section>
     <section id="news" class="site-section" style="display:none;">
       <h2 class="section-title" style="text-align:center;">News & Updates</h2>
-      <div style="max-width:800px;margin:1rem auto;text-align:center;">
-        <p>On a recent visit to The Webb School of Knoxville, lower school students had the opportunity to learn about the writing process: such as how to find the creative spark inside all of us, writing, editing, illustrating and publishing. Smiles and cheers ensued when the children learned that “Shep Learns A Lesson” was inspired by my first rescue dog, Chevy.</p>
-        <div class="news-gallery">
-          <img src="static/IMG_1305.png" alt="Webb School visit photo 1">
-          <img src="static/IMG_1306.jpeg" alt="Webb School visit photo 2">
-          <img src="static/IMG_1308.png" alt="Finn close up">
-        </div>
-      </div>
-    </section>
 
-    <section id="updates" class="site-section" style="display:none;">
-      <h2 class="section-title" style="text-align:center;">Updates & Partner Spotlight</h2>
-      <div style="max-width:800px;margin:1rem auto;text-align:center;padding:1rem;">
+      <div style="max-width:800px;margin:1rem auto 3rem auto;text-align:center;padding:1rem;">
         <h3 style="color:#d72660; margin-top:0;">Stories, Stuffies, and Stickers, Oh My! 🎁</h3>
         <p style="font-size:1.1rem; line-height:1.6;">
           We are so excited to support the **Volunteer Puppy Partners** this holiday season with the softest, sustainable, snuggly mini story stuffies we discovered from **Wilberry** and **Peter Pauper Press**. These mini animal pals are the perfect accessory for hugs, cuddles and cozy winter days.
@@ -440,7 +428,7 @@
 
         <div class="updates-gallery">
           <div class="update-item">
-            <img src="static/hug series bundle.jpg" alt="Hug A Kitten, Reindeer & Dog Mini-Book & Stuffie Set" style="max-width: none; width: 100%; height: auto; object-fit: contain; border-color: #2a90e6;">
+            <img src="static/hug series bundle.JPG" alt="Hug A Kitten, Reindeer & Dog Mini-Book & Stuffie Set" style="max-width: none; width: 100%; height: auto; object-fit: contain; border-color: #2a90e6;">
           </div>
           <div class="update-item">
             <img src="static/hug a kitten.JPG" alt="Hug A Kitten Kit" style="max-width: none; width: 100%; height: auto; object-fit: contain;">
@@ -449,8 +437,17 @@
             <img src="static/hug a puppy.JPG" alt="Hug A Puppy Kit" style="max-width: none; width: 100%; height: auto; object-fit: contain;">
           </div>
           <div class="update-item">
-            <img src="static/hug a reindeer.jpg" alt="Hug A Reindeer Kit" style="max-width: none; width: 100%; height: auto; object-fit: contain;">
+            <img src="static/hug a reindeer.JPG" alt="Hug A Reindeer Kit" style="max-width: none; width: 100%; height: auto; object-fit: contain;">
           </div>
+        </div>
+      </div>
+      <h3 class="section-title" style="text-align:center; margin-top:0;">School Visit Highlights</h3>
+      <div style="max-width:800px;margin:1rem auto;text-align:center;">
+        <p>On a recent visit to The Webb School of Knoxville, lower school students had the opportunity to learn about the writing process: such as how to find the creative spark inside all of us, writing, editing, illustrating and publishing. Smiles and cheers ensued when the children learned that “Shep Learns A Lesson” was inspired by my first rescue dog, Chevy.</p>
+        <div class="news-gallery">
+          <img src="static/IMG_1305.png" alt="Webb School visit photo 1">
+          <img src="static/IMG_1306.jpeg" alt="Webb School visit photo 2">
+          <img src="static/IMG_1308.png" alt="Finn close up">
         </div>
       </div>
     </section>
