@@ -29,7 +29,7 @@
       border-radius: 0 0 1.5rem 1.5rem;
       box-shadow: 0 2px 8px #b3d8fd80;
       margin-bottom: 1.5rem;
-      flex-wrap: wrap; /* Added for better mobile support */
+      flex-wrap: wrap;
     }
     nav a {
       color: #2a3a4a;
@@ -39,6 +39,7 @@
       border-radius: 1.2rem;
       padding: 0.4rem 1.1rem;
       transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      cursor: pointer;
     }
     nav a:hover, nav a.active {
       background: #ffe0e9;
@@ -53,12 +54,17 @@
       box-shadow: 0 4px 24px #b3d8fd80;
       padding: 2.5rem 1.5rem;
     }
+    .site-section {
+      display: none; /* Hidden by default */
+      animation: fadeIn 0.7s;
+    }
     .book-section {
       display: flex;
       flex-wrap: wrap;
       gap: 2.5rem;
       align-items: center;
       justify-content: center;
+      margin-bottom: 3rem;
     }
     .book-section img {
       max-width: 220px;
@@ -72,9 +78,6 @@
       font-size: 2rem;
       margin-bottom: 0.5rem;
     }
-    .reviews {
-      margin: 2.5rem 0;
-    }
     .review {
       background: #e3f1fb;
       border-left: 6px solid #d72660;
@@ -82,7 +85,6 @@
       padding: 1.2rem;
       border-radius: 1.2rem;
       font-size: 1.1rem;
-      color: #2a3a4a;
       box-shadow: 0 2px 8px #b3d8fd80;
     }
     .subscribe {
@@ -91,476 +93,210 @@
       border-radius: 1.5rem;
       margin: 2.5rem 0;
       text-align: center;
-      box-shadow: 0 2px 8px #b3d8fd80;
-    }
-    .subscribe input[type=email] {
-      padding: 0.7rem;
-      border-radius: 1rem;
-      border: 1px solid #b3d8fd;
-      margin-right: 0.7rem;
-      font-size: 1rem;
-    }
-    .subscribe button {
-      background: #2a90e6;
-      color: #fff;
-      border: none;
-      padding: 0.7rem 1.5rem;
-      border-radius: 1rem;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 600;
-      transition: background 0.2s;
-    }
-    .subscribe button:hover {
-      background: #d72660;
     }
     .section-title {
       color: #2a90e6;
       margin-top: 2rem;
       font-size: 2rem;
-      font-family: 'Quicksand', 'Segoe UI', Arial, sans-serif;
+      text-align: center;
     }
+    .news-gallery { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 1rem; }
+    .news-gallery img { width: calc(33% - 1rem); max-width: 260px; border-radius: 1rem; border: 4px solid #ffe0e9; object-fit: cover; }
+    .updates-gallery {
+      display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; margin: 2rem 0; padding: 1.5rem; background: #e3f1fb; border-radius: 1.5rem;
+    }
+    .updates-gallery img { width: 100%; max-width: 200px; border-radius: 1rem; border: 3px solid #d72660; background: #fff; }
+    
     footer {
       background: #e3f1fb;
       color: #2a3a4a;
       text-align: center;
-      padding: 1.2rem 0;
+      padding: 2rem 0;
       margin-top: 2.5rem;
       border-top-left-radius: 2rem;
       border-top-right-radius: 2rem;
-      box-shadow: 0 -2px 8px #b3d8fd80;
     }
-    .socials a {
-      color: #2a90e6;
-      margin: 0 0.7rem;
-      font-size: 1.5rem;
-      transition: color 0.2s;
-    }
-    .socials a:hover {
-      color: #d72660;
-    }
-    input, textarea, button {
-      font-family: inherit;
-    }
-    .site-section {
-      animation: fadeIn 0.7s;
-    }
-    /* News gallery styles */
-    .news-gallery { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 1rem; }
-    .news-gallery img { width: calc(33% - 1rem); max-width: 260px; border-radius: 1rem; box-shadow: 0 4px 16px #b3d8fd80; border: 4px solid #ffe0e9; background: #e3f1fb; object-fit: cover; }
-    
-    /* Updates section stuffie gallery */
-    .updates-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
-      margin: 2rem 0;
-      padding: 1.5rem;
-      background: #e3f1fb;
-      border-radius: 1.5rem;
-      box-shadow: 0 4px 16px #b3d8fd80;
-    }
-    .updates-gallery img {
-      width: 100%;
-      max-width: 200px;
-      border-radius: 1rem;
-      box-shadow: 0 4px 12px #d7266040;
-      border: 3px solid #d72660;
-      background: #fff;
-    }
-    .update-item {
-      text-align: center;
-      flex-basis: 200px;
-      padding: 1rem;
-    }
-    
+    .socials a { color: #2a90e6; margin: 0 0.7rem; font-size: 1.5rem; }
+
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
+      from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
     @media (max-width: 700px) {
-      main { padding: 1rem; }
-      .book-section { flex-direction: column; align-items: flex-start; }
-      header { padding: 1.5rem 0.5rem 1rem 0.5rem; }
-      nav { flex-wrap: wrap; gap: 0.7rem; }
+      .book-section { flex-direction: column; align-items: center; text-align: center; }
       .news-gallery img { width: calc(50% - 0.5rem); }
-      /* Adjust update gallery for small screens */
-      .updates-gallery {
-        flex-direction: column;
-        align-items: center;
-      }
-      .update-item {
-        width: 100%;
-        max-width: 300px;
-      }
     }
   </style>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
   <header>
-    <div style="display: flex; align-items: center; justify-content: center; gap: 1rem;">
-      <div style="flex:1;"></div>
-      <div>
-        <h1 style="margin:0; font-family: 'Dancing Script', cursive; font-size:2.7rem; color:#d72660; letter-spacing:1px; text-shadow:0 2px 8px #f8cdd1a0;">Miss Christine’s Story Books</h1>
-        <p style="margin:0; font-family: 'Dancing Script', cursive; font-size:1.5rem; color:#2a90e6; letter-spacing:0.5px; text-shadow:0 1px 4px #b3d8fd80;">Empowering Stories for Children by Christine M. Pelillo</p>
-        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-      </div>
-      <div style="flex:1; display: flex; justify-content: flex-end; align-items: center; gap:1rem;">
-        <a href="#cart" title="Shopping Cart" style="color:#fff; font-size:1.7rem; margin-left:1rem;">
-          <i class="fas fa-shopping-cart"></i>
-        </a>
-       
-      </div>
-    </div>
+    <h1 style="margin:0; font-family: 'Dancing Script', cursive; font-size:2.7rem; color:#d72660;">Miss Christine’s Story Books</h1>
+    <p style="margin:0; font-family: 'Dancing Script', cursive; font-size:1.5rem; color:#2a90e6;">Empowering Stories for Children by Christine M. Pelillo</p>
   </header>
+
   <nav>
-    <a href="#home" onclick="showSection('home')">Home</a>
-    <a href="#products" onclick="showSection('products')">Products</a>
-    <a href="#canine-crew" onclick="showSection('canine-crew')">The Canine Crew</a>
-    <a href="#about" onclick="showSection('about')">About Us</a>
-    <a href="#contact" onclick="showSection('contact')">Contact Us</a>
-    <a href="#news" onclick="showSection('news')">News & Updates</a>
+    <a onclick="showSection('home')" id="nav-home">Home</a>
+    <a onclick="showSection('products')" id="nav-products">Products</a>
+    <a onclick="showSection('canine-crew')" id="nav-canine-crew">The Canine Crew</a>
+    <a onclick="showSection('about')" id="nav-about">About Us</a>
+    <a onclick="showSection('contact')" id="nav-contact">Contact Us</a>
+    <a onclick="showSection('news')" id="nav-news">News & Updates</a>
   </nav>
-<main>
+
+  <main>
     <section id="home" class="site-section">
-      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:2.5rem;justify-content:center;">
-        <div style="flex:1;min-width:260px;max-width:340px;text-align:center;">
-          <a href="https://square.link/u/wLZNsvLp" target="_blank" rel="noopener"></a>
-            <img src="static/sheplearnslesson.avif" alt="Shep Learns A Lesson Book Cover" style="width:100%;max-width:320px;border-radius:1.5rem;box-shadow:0 4px 16px #b3d8fd80;border:4px solid #ffe0e9;background:#e3f1fb;cursor:pointer;">
-          </a>
-          <div style="margin-top:1rem;font-size:1.3rem;font-weight:700;">$10.00 <span style="font-weight:400;">Price</span></div>
-          <a href="https://square.link/u/wLZNsvLp" target="_blank" rel="noopener">
-            <button style="margin-top:1rem;background:#2a90e6;color:#fff;padding:0.7rem 1.5rem;border:none;border-radius:1rem;cursor:pointer;font-size:1rem;font-weight:600;transition:background 0.2s;">Buy Now</button>
-          </a>
+      <div class="book-section">
+        <div style="text-align:center;">
+          <img src="static/sheplearnslesson.avif" alt="Book Cover">
+          <div style="margin-top:1rem;font-size:1.3rem;font-weight:700;">$10.00</div>
+          <a href="https://square.link/u/wLZNsvLp" target="_blank"><button style="margin-top:1rem;background:#2a90e6;color:#fff;padding:0.7rem 1.5rem;border:none;border-radius:1rem;cursor:pointer;">Buy Now</button></a>
         </div>
-        <div style="flex:2;min-width:260px;max-width:500px;">
-          <h2 style="color:#2a90e6;margin-bottom:0.5rem;">Shep Learns A Lesson</h2>
-          <p>"Shep Learns A Lesson" came to life as a passion project when my first rescue dog, Chevy, passed away. As I was brainstorming ways to hold onto the precious memories with Chevy, writing a book became the perfect answer! Throughout the story, four dogs navigate through big emotions and even an injury, and figure out how to become friends through courage, kindness, empathy and facing their fears.</p>
+        <div style="max-width:500px;">
+          <h2 style="color:#2a90e6;">Shep Learns A Lesson</h2>
+          <p>"Shep Learns A Lesson" came to life as a passion project when my first rescue dog, Chevy, passed away. Throughout the story, four dogs navigate through big emotions and an injury, learning how to become friends through courage and empathy.</p>
         </div>
       </div>
-      <div class="reviews" style="margin-top:2.5rem;">
+      <div class="reviews">
         <h3 style="color:#2a90e6;">Reader's Reviews</h3>
-        <div class="review">“Miss Christine's storytelling is captivating and full of valuable life lessons for kids. Shep Learns A Lesson is a must-read for every child!”<br><em>– Jasmine Ward, Kids' Book Reviewer</em></div>
-        <div class="review">“As an educator, I highly recommend Shep Learns A Lesson for its powerful messages on empathy, courage, and friendship. Miss Christine's book is a gem in children's literature.”<br><em>– Alison Green, Education Specialist</em></div>
-        <div class="review">“Shep Learns A Lesson is a heartwarming tale that resonates with both children and adults. Miss Christine's ability to convey important life values through storytelling is remarkable.”<br><em>– Sam Donald, Parent & Reader</em></div>
+        <div class="review">“Captivating and full of valuable life lessons.” – Jasmine Ward</div>
+        <div class="review">“Powerful messages on empathy and friendship.” – Alison Green</div>
       </div>
     </section>
-    <section id="products" class="site-section" style="display:none;">
-    <h2 class="section-title" style="text-align:center;">Our Products</h2>
-    
-    <section id="products" style="padding-top: 1rem;">
-    
-    
-    <div class="book-section">
-        <img src="static/book.jpeg" alt="Shep Learns A Lesson Book">
-        <div>
-            <h2>"Shep Learns A Lesson" Book</h2>
-            <p><strong>Price:</strong> $15.00</p>
-            <p>Join Shep the sheepdog as he learns a valuable lesson about listening, bravery, and friendship in this beautifully illustrated children's book. Perfect for ages 3-8.</p>
-            <a href="https://square.link/u/L2uVpB4v" target="_blank" rel="noopener">
-                <button style="background:#2a90e6;color:#fff;padding:0.5rem 1.2rem;border:none;border-radius:4px;cursor:pointer;">Buy Book</button>
-            </a>
-        </div>
-    </div>
 
-    <div class="book-section" style="margin-top:2.5rem;">
-        <img src="static/story and stuffie.JPG" alt="Book, Button & Story Stuffie Bundle">
+    <section id="products" class="site-section">
+      <h2 class="section-title">Our Products</h2>
+      
+      <div class="book-section">
+        <img src="static/book.jpeg" alt="Book">
         <div>
-            <h2>Book, Button & Story Stuffie Bundle</h2>
-            <p><strong>Price:</strong> $25.00</p>
-            <p>Get the complete package! This bundle includes the **"Shep Learns A Lesson"** book, the **"Rescues Unleash Our Hearts"** button, and one **Story Stuffie** of your choice. Perfect for reading and cuddling!</p>
-            <a href="https://square.link/u/RT9GfWFS" target="_blank" rel="noopener">
-                <button style="background:#d72660;color:#fff;padding:0.5rem 1.2rem;border:none;border-radius:4px;cursor:pointer;">Buy Bundle</button>
-            </a>
+          <h2>"Shep Learns A Lesson" Book - $10.00</h2>
+          <p>A beautifully illustrated story about listening and bravery. Perfect for ages 3-8.</p>
+          <a href="https://square.link/u/wLZNsvLp" target="_blank"><button style="background:#2a90e6;color:#fff;padding:0.5rem 1.2rem;border:none;border-radius:4px;cursor:pointer;">Buy Book</button></a>
         </div>
-    </div>
+      </div>
 
-    <div class="book-section" style="margin-top:2.5rem;">
-        <img src="static/button.jpeg" alt="Rescues Unleash Our Hearts Button">
+      <div class="book-section">
+        <img src="static/story and stuffie.JPG" alt="Bundle">
         <div>
-            <h2>Rescues Unleash Our Hearts Button</h2>
-            <p><strong>Price:</strong> $5.00</p>
-            <p>Celebrate the joy of pet adoption with this adorable **"Rescues Unleash Our Hearts"** button featuring Chevy and her cat friend Sassy Tabby!</p>
-            <a href="https://square.link/u/2bs9TEj2" target="_blank" rel="noopener">
-                <button style="background:#6a8caf;color:#fff;padding:0.5rem 1.2rem;border:none;border-radius:4px;cursor:pointer;">Buy Now</button>
-            </a>
+          <h2>Book, Button & Stuffie Bundle - $25.00</h2>
+          <p>Includes the book, a rescue button, and one Story Stuffie of your choice.</p>
+          <a href="https://square.link/u/RT9GfWFS" target="_blank"><button style="background:#d72660;color:#fff;padding:0.5rem 1.2rem;border:none;border-radius:4px;cursor:pointer;">Buy Bundle</button></a>
         </div>
-    </div>
-    
-    <div class="book-section" style="margin-top:2.5rem;">
-        <img src="static/goldie stuffie.JPG" alt="Goldie Story Stuffie">
-        <div>
-            <h2>Goldie Story Stuffie (Golden Retriever)</h2>
-            <p><strong>Price:</strong> $10.00</p>
-            <p>Bring home **Goldie**, the gentle and wise golden-hearted dog from the Canine Crew! Perfect for hugging while reading her adventures.</p>
-            <a href="https://square.link/u/lSXN1rnR" target="_blank" rel="noopener">
-                <button style="background:#6a8caf;color:#fff;padding:0.5rem 1.2rem;border:none;border-radius:4px;cursor:pointer;">Buy Now</button>
-            </a>
-        </div>
-    </div>
-    
-    <div class="book-section" style="margin-top:2.5rem;">
-        <img src="static/toby stuffie.JPG" alt="Toby Story Stuffie">
-        <div>
-            <h2>Toby Story Stuffie</h2>
-            <p><strong>Price:</strong> $10.00</p>
-            <p>Snuggle up with **Toby**, the sweet, timid pup who learns to be brave! A cuddly friend for quiet reading time.</p>
-            <a href="https://square.link/u/blWtBr8Q" target="_blank" rel="noopener">
-                <button style="background:#6a8caf;color:#fff;padding:0.5rem 1.2rem;border:none;border-radius:4px;cursor:pointer;">Buy Now</button>
-            </a>
-        </div>
-    </div>
-    
-    <div class="book-section" style="margin-top:2.5rem;">
-        <img src="static/tabby stuffie.JPG" alt="Tabby Cat Story Stuffie">
-        <div>
-            <h2>Tabby Cat Story Stuffie</h2>
-            <p><strong>Price:</strong> $10.00</p>
-            <p>Meet the Canine Crew's favorite feline friend! This adorable **Tabby Cat Stuffie** is ready for adventure.</p>
-            <a href="https://square.link/u/mDaYg8Qh" target="_blank" rel="noopener">
-                <button style="background:#6a8caf;color:#fff;padding:0.5rem 1.2rem;border:none;border-radius:4px;cursor:pointer;">Buy Now</button>
-            </a>
-        </div>
-    </div> 
-    
-    <div class="book-section" style="margin-top:2.5rem;">
-        <img src="static/hug series bundle.jpg" alt="Hug A Series Bundle">
-        <div>
-            <h2>Hug A Series Stuffy Bundle</h2>
-            <p><strong>Price:</strong> $25.00</p>
-            <p>Get all three of the delightful **Hug A Series** stuffies (Kitten, Puppy, and Reindeer) for a special bundle price!</p>
-            <a href="https://square.link/u/Rd1rKJZo" target="_blank" rel="noopener">
-                <button style="background:#d72660;color:#fff;padding:0.5rem 1.2rem;border:none;border-radius:4px;cursor:pointer;">Buy Bundle</button>
-            </a>
-        </div>
-    </div>
+      </div>
 
-    <div class="book-section" style="margin-top:2.5rem;">
-        <img src="static/hug a kitten.JPG" alt="Hug A Kitten Stuffie">
+      <div class="book-section">
+        <img src="static/goldie stuffie.JPG" alt="Goldie">
         <div>
-            <h2>Hug A Kitten Stuffie</h2>
-            <p><strong>Price:</strong> $10.00</p>
-            <p>The perfect companion for cat lovers! This soft, cuddly kitten is ready for quiet reading time and big hugs.</p>
-            <a href="https://square.link/u/QLRB2XBL" target="_blank" rel="noopener">
-                <button style="background:#6a8caf;color:#fff;padding:0.5rem 1.2rem;border:none;border-radius:4px;cursor:pointer;">Buy Now</button>
-            </a>
-        </div>
-    </div>
-
-    <div class="book-section" style="margin-top:2.5rem;">
-        <img src="static/hug a puppy.JPG" alt="Hug A Puppy Stuffie">
-        <div>
-            <h2>Hug A Puppy Stuffie</h2>
-            <p><strong>Price:</strong> $10.00</p>
-            <p>Bring home this adorable puppy, a furry friend who loves adventure and snuggles!</p>
-            <a href="https://square.link/u/dq7vVqLc" target="_blank" rel="noopener">
-                <button style="background:#6a8caf;color:#fff;padding:0.5rem 1.2rem;border:none;border-radius:4px;cursor:pointer;">Buy Now</button>
-            </a>
-        </div>
-    </div>
-
-    <div class="book-section" style="margin-top:2.5rem;">
-        <img src="static/hug a reindeer.jpg" alt="Hug A Reindeer Stuffie">
-        <div>
-            <h2>Hug A Reindeer Stuffie</h2>
-            <p><strong>Price:</strong> $10.00</p>
-            <p>A festive and cuddly reindeer to keep you warm all year round. Part of the Hug A Series!</p>
-            <a href="https://square.link/u/5OtdGeTB" target="_blank" rel="noopener">
-                <button style="background:#6a8caf;color:#fff;padding:0.5rem 1.2rem;border:none;border-radius:4px;cursor:pointer;">Buy Now</button>
-            </a>
-        </div>
-    </div>
-    </section>
-    <section id="canine-crew" class="site-section" style="display:none;">
-      <h2 class="section-title" style="text-align:center;">The Canine Crew</h2>
-      <div style="display: flex; flex-wrap: wrap; gap: 2.5rem; justify-content: center; align-items: stretch;">
-        <div style="background:#fff; border-radius:1.5rem; box-shadow:0 2px 8px #b3d8fd80; padding:1.5rem; max-width:340px; min-width:260px; flex:1 1 300px; display:flex; flex-direction:column; align-items:center; height:100%;">
-          <img src="static/chevy.avif" alt="Chevy the leader" style="width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:1rem; margin-bottom:1rem; background:#e3f1fb; border:3px solid #ffe0e9;">
-          <h3 style="color:#2a90e6; margin:0 0 0.5rem 0;">🐶 Meet Chevy  🐾</h3>
-          <p style="text-align:center;">Chevy is the leader of the Canine Crew with a nose for adventure and a heart full of care! She's always ready to help others—especially when someone is learning an important life lesson.</p>
-          <ul style="list-style:none; padding:0; margin:1rem 0 0 0; text-align:left;">
-            <li>🧠 Thinking before acting</li>
-            <li>❤️ Being a good friend</li>
-            <li>🎯 Helping others learn from mistakes</li>
-          </ul>
-          <p style="margin-top:1rem; text-align:center;">Chevy believes that every day is a chance to learn something new—and to be your best self!</p>
-        </div>
-        <div style="background:#fff; border-radius:1.5rem; box-shadow:0 2px 8px #b3d8fd80; padding:1.5rem; max-width:340px; min-width:260px; flex:1 1 300px; display:flex; flex-direction:column; align-items:center; height:100%;">
-          <img src="static/goldie.avif" alt="Goldie the Golden Retriever" style="width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:1rem; margin-bottom:1rem; background:#e3f1fb; border:3px solid #ffe0e9;">
-          <h3 style="color:#d72660; margin:0 0 0.5rem 0;">🐕 Meet Goldie the Golden Retriever ✨</h3>
-          <p style="text-align:center;">Goldie is a gentle, golden-hearted dog who shines with kindness and wisdom. She’s like the big sister of the group—calm, caring, and always ready with a helpful word or a comforting nudge.</p>
-          <ul style="list-style:none; padding:0; margin:1rem 0 0 0; text-align:left;">
-            <li>💛 Helping others solve problems</li>
-            <li>🌼 Playing gently with younger animals</li>
-            <li>🧠 Teaching by example — she shows how to do the right thing, even when it's hard!</li>
-          </ul>
-          <p style="margin-top:1rem; font-style:italic; color:#2a90e6; text-align:center;">Goldie’s Motto:<br>“Kindness always leads the way.”</p>
-        </div>
-        <div style="background:#fff; border-radius:1.5rem; box-shadow:0 2px 8px #b3d8fd80; padding:1.5rem; max-width:340px; min-width:260px; flex:1 1 300px; display:flex; flex-direction:column; align-items:center; height:100%;">
-          <img src="static/toby.avif" alt="Toby the Timid Mutt" style="width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:1rem; margin-bottom:1rem; background:#e3f1fb; border:3px solid #ffe0e9;">
-          <h3 style="color:#2a90e6; margin:0 0 0.5rem 0;">💙 Meet Toby the Timid Mutt 🐾</h3>
-          <p style="text-align:center;">Toby is a sweet, gentle pup with big eyes and a bigger heart. He’s a little shy and sometimes nervous, but he’s learning every day that it’s okay to be scared—and that brave doesn't mean loud, it means trying your best, even when it’s hard.</p>
-          <p style="text-align:center;">Sometimes Toby needs a moment to think or a safe space to calm down—and that’s totally okay! He reminds us that everyone has their own way of being brave.</p>
-          <ul style="list-style:none; padding:0; margin:1rem 0 0 0; text-align:left;">
-            <li>🧸 Quiet corners and soft blankets</li>
-            <li>📚 Listening to stories (he's a great listener!)</li>
-            <li>🌈 Friends who help him feel safe and included</li>
-          </ul>
-        </div>
-        <div style="background:#fff; border-radius:1.5rem; box-shadow:0 2px 8px #b3d8fd80; padding:1.5rem; max-width:340px; min-width:260px; flex:1 1 300px; display:flex; flex-direction:column; align-items:center; height:100%;">
-          <img src="static/shep.avif" alt="Shep" style="width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:1rem; margin-bottom:1rem; background:#e3f1fb; border:3px solid #ffe0e9;">
-          <h3 style="color:#d72660; margin:0 0 0.5rem 0;">🐕 Meet Shep! 🌟</h3>
-          <p style="text-align:center;">Shep is a lively, curious dog who’s still learning how to be the best friend he can be. Sometimes Shep gets a little too excited or forgets to think before he acts — but that’s okay!</p>
-          <ul style="list-style:none; padding:0; margin:1rem 0 0 0; text-align:left;">
-            <li>🎾 Playing with his friends</li>
-            <li>🐾 Exploring new places</li>
-            <li>💡 Figuring out how to do better every day</li>
-          </ul>
-          <p style="margin-top:1rem; text-align:center;">When Shep realizes he’s made a mistake, he takes a deep breath and listens to his friends like Goldie, Chevy, and Toby. With their help, he learns important lessons about kindness, patience, and being a good friend.</p>
+          <h2>Goldie Story Stuffie - $10.00</h2>
+          <p>Bring home the gentle and wise golden-hearted dog from the Canine Crew!</p>
+          <a href="https://square.link/u/lSXN1rnR" target="_blank"><button style="background:#6a8caf;color:#fff;padding:0.5rem 1.2rem;border:none;border-radius:4px;cursor:pointer;">Buy Now</button></a>
         </div>
       </div>
     </section>
-    <section id="contact" class="site-section" style="display:none;">
+
+    <section id="canine-crew" class="site-section">
+      <h2 class="section-title">The Canine Crew</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+        <div style="background:#fff; border-radius:1.5rem; box-shadow:0 2px 8px #b3d8fd80; padding:1.5rem; max-width:300px; text-align:center;">
+          <img src="static/chevy.avif" style="width:100%; border-radius:1rem; border:3px solid #ffe0e9;">
+          <h3>🐶 Meet Chevy</h3>
+          <p>The leader with a heart full of care, helping others learn important life lessons.</p>
+        </div>
+        <div style="background:#fff; border-radius:1.5rem; box-shadow:0 2px 8px #b3d8fd80; padding:1.5rem; max-width:300px; text-align:center;">
+          <img src="static/goldie.avif" style="width:100%; border-radius:1rem; border:3px solid #ffe0e9;">
+          <h3>🐕 Meet Goldie</h3>
+          <p>The big sister of the group—calm, caring, and always ready with a comforting nudge.</p>
+        </div>
+        <div style="background:#fff; border-radius:1.5rem; box-shadow:0 2px 8px #b3d8fd80; padding:1.5rem; max-width:300px; text-align:center;">
+          <img src="static/toby.avif" style="width:100%; border-radius:1rem; border:3px solid #ffe0e9;">
+          <h3>💙 Meet Toby</h3>
+          <p>A shy pup learning that being brave means trying your best, even when it's hard.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="site-section">
+      <h2 class="section-title">About Us</h2>
+      <div style="text-align:center;">
+        <img src="static/chrstine.avif" style="max-width:400px; width:100%; border-radius:1.5rem; border:4px solid #ffe0e9;">
+        <p style="max-width:700px; margin: 2rem auto;"><strong>Miss Christine, Children's Author & Educator</strong></p>
+        <p style="max-width:700px; margin: 2rem auto;">Educating children for over 30 years gave me the insight I needed to fulfill a lifelong dream: to write and publish a children's book! I am also an active volunteer for the TN HABIT Program with my rescue dog, Finn.</p>
+        <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+          <img src="static/momWkids.jpg" style="max-width:300px; border-radius:1rem;">
+          <img src="static/finnclose.jpg" style="max-width:300px; border-radius:1rem;">
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="site-section">
       <h2 class="section-title">Contact Us</h2>
-      <form action="https://formspree.io/f/xvgqprqz" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required style="margin-bottom:0.5rem;display:block;">
-        <input type="email" name="email" placeholder="Your Email" required style="margin-bottom:0.5rem;display:block;">
-        <textarea name="message" placeholder="Your Message" required style="margin-bottom:0.5rem;display:block;width:100%;"></textarea>
-        <button type="submit">Send</button>
-      </form>
-      <div id="contact-success" style="display:none;color:#2a90e6;margin-top:1rem;text-align:center;font-weight:600;">Thank you for reaching out! We'll be in touch soon.</div>
-    </section>
-    
-    <section id="reviews" class="reviews site-section" style="display:none;">
-      <h2 class="section-title">Reviews & Accolades</h2>
-      <div class="review">“Miss Christine's storytelling is captivating and full of valuable life lessons for kids.”<br><em>– Jasmine Ward</em></div>
-      <div class="review">“As an educator, I highly recommend Shep Learns A Lesson for its powerful messages on empathy, courage, and friendship.”<br><em>– Alison Green</em></div>
-      <div class="review">“Shep Learns A Lesson is a heartwarming tale that resonates with both children and adults.”<br><em>– Sam Donald</em></div>
-    </section>
-    <section id="subscribe" class="subscribe site-section" style="display:none;">
-      <h2>Subscribe to Miss Christine’s Newsletter</h2>
-      <form onsubmit="event.preventDefault();alert('Thank you for subscribing!');">
-        <input type="email" placeholder="Your email address" required>
-        <button type="submit">Subscribe</button>
+      <form action="https://formspree.io/f/xvgqprqz" method="POST" style="max-width:500px; margin:0 auto; display: flex; flex-direction: column; gap: 1rem;">
+        <input type="text" name="name" placeholder="Your Name" required style="padding:1rem; border-radius:1rem; border:1px solid #b3d8fd;">
+        <input type="email" name="email" placeholder="Your Email" required style="padding:1rem; border-radius:1rem; border:1px solid #b3d8fd;">
+        <textarea name="message" placeholder="Your Message" required style="padding:1rem; border-radius:1rem; border:1px solid #b3d8fd; height:150px;"></textarea>
+        <button type="submit" style="background:#2a90e6; color:#fff; padding:1rem; border:none; border-radius:1rem; cursor:pointer; font-weight:600;">Send Message</button>
       </form>
     </section>
-    <section id="about" class="site-section" style="display:none;">
-      <h2 class="section-title" style="text-align:center;">About Us</h2>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:2rem;justify-content:center;">
-      <img src="static/chrstine.avif" alt="Christine M. Pelillo" style="max-width:480px;width:100%;border-radius:1.5rem;box-shadow:0 4px 16px #b3d8fd80;border:4px solid #ffe0e9;background:#e3f1fb;display:block;margin-bottom:1.5rem;">
-      <div style="max-width:700px;text-align:center;">
-        <p><strong>- Miss Christine, Children's Author & Educator -</strong></p>
-        <p>Welcome to the world of storytelling and education! I am dedicated to creating engaging and impactful content for children, using my experience as an educator and a passion for writing. Through my books, I aim to inspire young minds and foster a love for reading and learning.</p>
-      </div>
-      <div style="display:flex;gap:2rem;justify-content:center;align-items:flex-start;width:100%;flex-wrap:wrap;">
-        <img src="static/momWkids.jpg" alt="Miss Christine and Family" style="max-width:480px;width:100%;border-radius:1.5rem;box-shadow:0 4px 16px #b3d8fd80;border:4px solid #ffe0e9;background:#e3f1fb;display:block;margin-bottom:1.5rem;">
-        <img src="static/finnclose.jpg" alt="Finn Close Up" style="max-width:320px;width:100%;border-radius:1.5rem;box-shadow:0 4px 16px #b3d8fd80;border:4px solid #ffe0e9;background:#e3f1fb;display:block;margin-bottom:1.5rem;">
-      </div>
-      <div style="max-width:700px;text-align:center;">
-        <h3 style="color:#2a90e6;margin-bottom:0.5rem;">More About Miss Christine</h3>
-        <p>I am a passionate educator, author, philanthropist in action, and active volunteer for the TN HABIT Program (Human-Animal Bond in Tennessee), along with my beloved rescue dog, Finn. I am an ardent supporter for the well-being of both children and dogs alike. Educating children for over 30 years gave me the insight I needed to fulfill a lifelong dream: to write & publish a children's book!</p>
-      </div>
-      </div>
-    </section>
-    <section id="news" class="site-section" style="display:none;">
-      <h2 class="section-title" style="text-align:center;">News & Updates</h2>
 
-      <div style="max-width:800px;margin:1rem auto 3rem auto;text-align:center;padding:1rem;">
-        <h3 style="color:#d72660; margin-top:0;">Stories, Stuffies, and Stickers, Oh My! 🎁</h3>
-        <p style="font-size:1.1rem; line-height:1.6;">
-          We are so excited to support the **Volunteer Puppy Partners** this holiday season with the softest, sustainable, snuggly mini story stuffies we discovered from **Wilberry** and **Peter Pauper Press**. These mini animal pals are the perfect accessory for hugs, cuddles and cozy winter days.
-        </p>
-        <p style="font-style:italic; font-weight:600; color:#2a90e6;">Check out the adorable "Hug A" series kits below!</p>
-
+    <section id="news" class="site-section">
+      <h2 class="section-title">News & Updates</h2>
+      <div style="text-align:center;">
+        <h3 style="color:#d72660;">Stories, Stuffies, and Stickers! 🎁</h3>
+        <p>Supporting Volunteer Puppy Partners with the softest mini story stuffies.</p>
         <div class="updates-gallery">
-    <div class="update-item">
-        <a href="https://square.link/u/Rd1rKJZo" target="_blank" rel="noopener">
-            <img src="static/hug series bundle.JPG" alt="Hug A Kitten, Reindeer & Dog Mini-Book & Stuffie Set" style="max-width: none; width: 100%; height: auto; object-fit: contain; border-color: #2a90e6;">
-        </a>
-    </div>
-    <div class="update-item">
-        <a href="https://square.link/u/QLRB2XBL" target="_blank" rel="noopener">
-            <img src="static/hug a kitten.JPG" alt="Hug A Kitten Kit" style="max-width: none; width: 100%; height: auto; object-fit: contain;">
-        </a>
-    </div>
-    <div class="update-item">
-        <a href="https://square.link/u/dq7vVqLc" target="_blank" rel="noopener">
-            <img src="static/hug a puppy.JPG" alt="Hug A Puppy Kit" style="max-width: none; width: 100%; height: auto; object-fit: contain;">
-        </a>
-    </div>
-    <div class="update-item">
-        <a href="https://square.link/u/5OtdGeTB" target="_blank" rel="noopener">
-        <img src="static/hug a reindeer.JPG" alt="Hug A Reindeer Kit" style="max-width: none; width: 100%; height: auto; object-fit: contain;">
-        </a>
-    </div>
-</div>
-      </div>
-      <h3 class="section-title" style="text-align:center; margin-top:0;">School Visit Highlights</h3>
-      <div style="max-width:800px;margin:1rem auto;text-align:center;">
-        <p>On a recent visit to The Webb School of Knoxville, lower school students had the opportunity to learn about the writing process: such as how to find the creative spark inside all of us, writing, editing, illustrating and publishing. Smiles and cheers ensued when the children learned that “Shep Learns A Lesson” was inspired by my first rescue dog, Chevy.</p>
+          <img src="static/hug a kitten.JPG">
+          <img src="static/hug a puppy.JPG">
+          <img src="static/hug a reindeer.JPG">
+        </div>
+        <h3 class="section-title">School Visit Highlights</h3>
+        <p>A recent visit to The Webb School of Knoxville!</p>
         <div class="news-gallery">
-          <img src="static/IMG_1305.png" alt="Webb School visit photo 1">
-          <img src="static/IMG_1306.jpeg" alt="Webb School visit photo 2">
-          <img src="static/IMG_1308.png" alt="Finn close up">
+          <img src="static/IMG_1305.png">
+          <img src="static/IMG_1306.jpeg">
+          <img src="static/IMG_1308.png">
         </div>
       </div>
     </section>
-    
   </main>
+
   <footer>
-    <p style="margin:0;">&copy; 2026 Miss Christine's Books. All rights reserved.</p>
-    <div class="socials" style="margin-top:0.5rem;">
-      <a href="https://www.instagram.com/caninecrew4kids/" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/christine-pelillo-educator-author-03b9a9224/ target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-linkedin-in"></i>
-      </a>
+    <p>&copy; 2026 Miss Christine's Books. All rights reserved.</p>
+    <div class="socials">
+      <a href="https://www.instagram.com/caninecrew4kids/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/christine-pelillo-educator-author-03b9a9224/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
     </div>
   </footer>
+
   <script>
     function showSection(id) {
+      // Hide all sections
       const sections = document.querySelectorAll('.site-section');
       sections.forEach(section => {
         section.style.display = 'none';
       });
+
+      // Show the selected section
       document.getElementById(id).style.display = 'block';
 
-      // Update active state in nav
+      // Update active nav link
       const navLinks = document.querySelectorAll('nav a');
       navLinks.forEach(link => {
         link.classList.remove('active');
       });
-      document.querySelector('nav a[href="#' + id + '"]').classList.add('active');
+      const activeLink = document.getElementById('nav-' + id);
+      if(activeLink) activeLink.classList.add('active');
+
+      // Scroll to top
+      window.scrollTo(0, 0);
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
-      // Set 'home' as active on load
+    // Default to Home on load
+    window.onload = function() {
       showSection('home');
-      
-      var paymentSelect = document.getElementById('payment-method');
-      if (paymentSelect) {
-        var creditFields = document.getElementById('credit-fields');
-        var paypalFields = document.getElementById('paypal-fields');
-        paymentSelect.addEventListener('change', function() {
-          if (this.value === 'credit') {
-            creditFields.style.display = '';
-            paypalFields.style.display = 'none';
-          } else if (this.value === 'paypal') {
-            creditFields.style.display = 'none';
-            paypalFields.style.display = '';
-          } else {
-            creditFields.style.display = 'none';
-            paypalFields.style.display = 'none';
-          }
-        });
-      }
-    });
+    };
   </script>
 </body>
 </html>
